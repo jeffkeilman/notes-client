@@ -6,12 +6,10 @@ import SignIn from '../SignIn/SignIn';
 
 const Main = () => {
     return(
-        <div>
-            <Switch>
-                <Route exact path='/' component={Notes} />
-                <Route path='/sign-in' component={SignIn} />
-            </Switch>
-        </div>
+        <Switch>
+            <Route exact path='/' component={Notes} />
+            <Route path='/sign-in' component={SignIn} />
+        </Switch>
     );
 }
 
