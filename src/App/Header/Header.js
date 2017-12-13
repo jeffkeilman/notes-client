@@ -2,9 +2,10 @@
 // custom component files.
 import React from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
-const Header = (props) => {
-    return (
+const Header = () => {
+    return(
         <Navbar fluid inverse collapseOnSelect>
             <Navbar.Header>
                 <Navbar.Brand>
@@ -14,12 +15,16 @@ const Header = (props) => {
             </Navbar.Header>
             <Navbar.Collapse>
             <Nav pullRight>
-                <NavItem eventKey={1} href="/">Notes</NavItem>
-                <NavItem eventKey={2} href="/">Sign In</NavItem>
+                <LinkContainer exact to='/'>
+                    <NavItem eventKey={1}>Notes</NavItem>
+                </LinkContainer>
+                <LinkContainer to='/sign-in'>
+                    <NavItem eventKey={2}>Sign In</NavItem>
+                </LinkContainer>
             </Nav>
             </Navbar.Collapse>
         </Navbar>
-    );
+    )
 }
 
 export default Header;
