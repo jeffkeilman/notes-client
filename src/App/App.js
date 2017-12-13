@@ -7,7 +7,7 @@ import Main from './Main/Main';
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className='main-page'>
         <Header />
         <Main />
       </div>
