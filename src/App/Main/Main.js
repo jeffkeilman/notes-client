@@ -7,7 +7,7 @@ import SignIn from '../SignIn/SignIn';
 const Main = () => {
     return(
         <Switch>
-            <Route exact path='/' component={Notes} />
+            <Route exact path='/notes' component={Notes} />
             <Route path='/sign-in' component={SignIn} />
         </Switch>
     );

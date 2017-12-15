@@ -1,18 +1,21 @@
-html, body, .container-fluid, .row {
+.container-fluid, .row {
     height: 100%;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
+.row .left {
+    height: 100%;
+    max-height: none;
+    background-color: #9b9b9b;
 }
 
-.row .col-md-3 {
+.row .right {
     height: 100%;
-    background-color: red;
+    max-height: none;
+    border-left: 5px double #000;
+    background-color: #9b9b9b;
 }
 
-.row .col-md-9 {
-    height: 100%;
-    background-color: blue;
+.note-items {
+    margin-top: 40px;
+    margin-bottom: 105px;
 }
