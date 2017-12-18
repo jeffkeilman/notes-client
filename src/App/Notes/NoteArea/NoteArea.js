@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import './NoteArea.css';
 
 class NoteArea extends Component {
@@ -28,6 +29,11 @@ class NoteArea extends Component {
                     <form>
                         <textarea className="form-control" rows="25" placeholder="Type some text..."></textarea>
                     </form>
+                    <Route render={({ history }) => (
+                        <button onClick={() => {
+                            history.push('/notes')
+                        }} className="btn btn-primary">&#60; Back</button>
+                    )} />
                 </div>
             );
         } else {

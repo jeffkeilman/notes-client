@@ -5,14 +5,14 @@
 .row .left {
     height: 100%;
     max-height: none;
-    background-color: #9b9b9b;
+    background-color: #d3d2d2;
 }
 
 .row .right {
     height: 100%;
     max-height: none;
     border-left: 5px double #000;
-    background-color: #9b9b9b;
+    background-color: #d3d2d2;
 }
 
 .note-items {
