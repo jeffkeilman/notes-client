@@ -1,3 +1,7 @@
+h1 {
+    font-size: 15px;
+}
+
 .note-item {
     background-color: #fff;
     width: 100%;
@@ -8,4 +12,17 @@
 
 .note-item:hover {
     border-color: #0000ff;
+}
+
+.inner-item {
+    height: 50%;
+}
+
+.dates {
+    font-size: 13px;
+}
+
+.note-text {
+    color: #d3d3d3;
+    font-style: italic;
 }

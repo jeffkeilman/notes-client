@@ -5,9 +5,13 @@ import './Notes.css';
 import NoteArea from './NoteArea/NoteArea';
 import NoteSelectionArea from './NoteSelectionArea/NoteSelectionArea';
 
+import NoteService from '../../services/NoteService';
+
 class Notes extends Component {
     state = {
-        width: window.innerWidth
+        width: window.innerWidth,
+        notes: NoteService.index(),
+        text: ''
     };
 
     componentWillMount() {
@@ -32,8 +36,14 @@ class Notes extends Component {
                     <div className='row'>
                         <div className='col-xs-12 pre-scrollable left'>
                             <Switch>
-                                <Route exact path='/notes' component={NoteSelectionArea} />
-                                <Route path='/notes/:id' component={NoteArea} />
+                                <Route
+                                    exact path='/notes'
+                                    render={() => <NoteSelectionArea notes={this.state.notes} />}
+                                />
+                                <Route
+                                    path='/notes/:id'
+                                    render={() => <NoteArea text={this.state.text} />}
+                                />
                             </Switch>
                         </div>
                     </div>
@@ -44,10 +54,10 @@ class Notes extends Component {
                 <div className='container-fluid'>
                     <div className='row'>
                         <div className='col-xs-3 pre-scrollable left'>
-                            <NoteSelectionArea />
+                            <NoteSelectionArea notes={this.state.notes} />
                         </div>
                         <div className='col-xs-9 right'>
-                            <NoteArea />
+                            <NoteArea text={this.state.text} />
                         </div>
                     </div>
                 </div>

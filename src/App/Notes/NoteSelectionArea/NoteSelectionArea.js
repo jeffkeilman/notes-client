@@ -20,6 +20,14 @@ class NoteSelectionArea extends Component {
         this.setState({ width: window.innerWidth });
     };
 
+    loadInNotes = () => {
+        if (this.props.notes) {
+            return this.props.notes.map((note) => <NoteItem key={note.id} note={note} />);
+        } else {
+            return 'It\'s lonely in here... let\'s add some notes!';
+        }
+    };
+
     render() {
         const { width } = this.state;
         const isMobile = width <= 500;
@@ -29,18 +37,7 @@ class NoteSelectionArea extends Component {
                 <div>
                     <Toolbar />
                     <div className='note-items'>
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
+                        {this.loadInNotes()}
                     </div>
                 </div>
             );
@@ -49,34 +46,7 @@ class NoteSelectionArea extends Component {
                 <div>
                     <Toolbar />
                     <div className='note-items'>
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
-                        <NoteItem />
+                        {this.loadInNotes()}
                     </div>
                 </div>
             );

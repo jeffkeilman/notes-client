@@ -6,7 +6,7 @@ const Toolbar = () => {
         <div className="container search-form-container">
             <form className="form-inline pull-left">
                 <div className="form-group">
-                    <input type="text" className="form-control note-name" placeholder="Note name or text..." />
+                    <input type="text" className="form-control note-name" placeholder="Note text..." />
                     <button type="submit" className="btn btn-primary"><i className="fa fa-search" aria-hidden="true"></i></button>
                 </div>
             </form>
