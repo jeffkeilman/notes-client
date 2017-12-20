@@ -22,7 +22,7 @@ class NoteSelectionArea extends Component {
 
     loadInNotes = () => {
         if (this.props.notes) {
-            return this.props.notes.map((note) => <NoteItem key={note.id} note={note} />);
+            return this.props.notes.map((note) => <NoteItem key={note.id} note={note} updateId={this.props.updateId} />);
         } else {
             return 'It\'s lonely in here... let\'s add some notes!';
         }

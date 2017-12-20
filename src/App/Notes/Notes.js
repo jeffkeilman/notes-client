@@ -11,6 +11,7 @@ class Notes extends Component {
     state = {
         width: window.innerWidth,
         notes: NoteService.index(),
+        id: null,
         text: ''
     };
 
@@ -26,6 +27,18 @@ class Notes extends Component {
         this.setState({ width: window.innerWidth });
     };
 
+    updateText = (text) => {
+        this.setState({ text: text });
+    };
+
+    updateId = (id) => {
+        this.setState({ id: id }, () => {
+            if (this.state.id) {
+                this.setState({ text: NoteService.show(this.state.id).text });
+            }
+        });
+    };
+
     render() {
         const { width } = this.state;
         const isMobile = width <= 500;
@@ -38,11 +51,11 @@ class Notes extends Component {
                             <Switch>
                                 <Route
                                     exact path='/notes'
-                                    render={() => <NoteSelectionArea notes={this.state.notes} />}
+                                    render={() => <NoteSelectionArea notes={this.state.notes} updateId={this.updateId} />}
                                 />
                                 <Route
                                     path='/notes/:id'
-                                    render={() => <NoteArea text={this.state.text} />}
+                                    render={() => <NoteArea text={this.state.text} updateId={this.updateId} updateText={this.updateText} />}
                                 />
                             </Switch>
                         </div>
@@ -54,10 +67,10 @@ class Notes extends Component {
                 <div className='container-fluid'>
                     <div className='row'>
                         <div className='col-xs-3 pre-scrollable left'>
-                            <NoteSelectionArea notes={this.state.notes} />
+                            <NoteSelectionArea notes={this.state.notes} updateId={this.updateId} />
                         </div>
                         <div className='col-xs-9 right'>
-                            <NoteArea text={this.state.text} />
+                            <NoteArea text={this.state.text} updateId={this.updateId} updateText={this.updateText} />
                         </div>
                     </div>
                 </div>

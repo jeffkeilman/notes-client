@@ -19,6 +19,7 @@ const NoteItem = (props) => {
         <Route render={({ history }) => (
             <div onClick={(event) => {
                 // event.target.style.border = 'outset #0000ff'; <-- put a pin in it
+                props.updateId(props.note.id);
                 history.push('/notes/' + props.note.id);
             }} className='container note-item'>
                 <div className='row inner-item'>

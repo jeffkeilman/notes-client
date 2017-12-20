@@ -45,7 +45,7 @@ const index = () => {
 
 const show = (id) => {
     // will eventually do a real thing
-    return notes.find((note) => id === note.id);
+    return notes.find((note) => +id === note.id);
 }
 
 module.exports = {

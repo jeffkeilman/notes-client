@@ -17,7 +17,7 @@ const Header = () => {
                 </Navbar.Header>
                 <Navbar.Collapse>
                 <Nav pullRight>
-                    <LinkContainer exact to='/notes'>
+                    <LinkContainer to='/notes'>
                         <NavItem eventKey={1}>Notes</NavItem>
                     </LinkContainer>
                     <LinkContainer to='/sign-in'>

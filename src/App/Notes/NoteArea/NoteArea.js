@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
+
 import './NoteArea.css';
+
+// import NoteService from '../../../services/NoteService';
 
 class NoteArea extends Component {
     state = {
@@ -8,7 +11,12 @@ class NoteArea extends Component {
     };
 
     componentWillMount() {
+        const id = window.location.pathname.split('/')[2];
         window.addEventListener('resize', this.handleWindowSizeChange);
+
+        if (id) {
+            this.props.updateId(id);
+        }
     };
 
     componentWillUnmount() {
@@ -19,6 +27,10 @@ class NoteArea extends Component {
         this.setState({ width: window.innerWidth });
     };
 
+    handleTextChange = (event) => {
+        this.props.updateText(event.target.value);
+    };
+
     render() {
         const { width } = this.state;
         const isMobile = width <= 500;
@@ -27,7 +39,13 @@ class NoteArea extends Component {
             return(
                 <div className="container search-form-container">
                     <form>
-                        <textarea className="form-control" rows="25" placeholder="Type some text..."></textarea>
+                        <textarea
+                            className="form-control"
+                            rows="25"
+                            placeholder="Type some text..."
+                            value={this.props.text}
+                            onChange={this.handleTextChange}
+                        />
                     </form>
                     <Route render={({ history }) => (
                         <button onClick={() => {
@@ -40,7 +58,13 @@ class NoteArea extends Component {
             return(
                 <div className="container search-form-container">
                     <form>
-                        <textarea className="form-control" rows="30" placeholder="Type some text..."></textarea>
+                        <textarea
+                            className="form-control"
+                            rows="30"
+                            placeholder="Type some text..."
+                            value={this.props.text}
+                            onChange={this.handleTextChange}
+                        />
                     </form>
                 </div>
             );
